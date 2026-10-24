@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+deal-alert-bot/node_modules/
+
+# Secrets & Environment Variables (NEVER commit these)
+.env
+*.env
+!.env.example
+deal-alert-bot/.env
+
+# Local deal cache & databases
+data/
+deal-alert-bot/data/
+*.log
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+sweets.txt

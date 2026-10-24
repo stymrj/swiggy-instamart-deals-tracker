@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loot Radar</title>
+  <meta name="description" content="A bookmark that finds the biggest discounts in your Instamart store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --card: #ffffff;
+      --text: #1f2328;
+      --soft: #5c616b;
+      --line: #e9e5dc;
+      --lime: #d4f56b;
+      --green: #4d7c0f;
+      --tint: #f3f9e3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+    header { display: flex; align-items: center; gap: 10px; padding: 24px 0; font-weight: 700; font-size: 18px; }
+    .mark { width: 32px; height: 32px; border-radius: 9px; background: var(--lime); display: grid; place-items: center; }
+
+    .hero { padding: 40px 0 32px; }
+    .hero h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .hero p { font-size: 18px; color: var(--soft); max-width: 520px; }
+
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+
+    .install { text-align: center; }
+    .bm-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--lime); color: var(--text); text-decoration: none; font-weight: 700; font-size: 17px;
+      padding: 13px 26px; border-radius: 12px; cursor: grab; user-select: none;
+      transition: transform .12s ease;
+    }
+    .bm-btn:hover { transform: translateY(-2px); }
+    .install .hint { margin-top: 12px; font-size: 14px; color: var(--soft); }
+
+    .btn {
+      font: inherit; font-size: 14px; color: var(--text); background: var(--card);
+      border: 1px solid var(--line); border-radius: 10px; padding: 9px 16px; cursor: pointer; text-decoration: none;
+    }
+    .btn:hover { border-color: var(--soft); }
+    .btn.done { background: var(--tint); border-color: var(--green); color: var(--green); }
+    .install .hint.small { margin-top: 4px; font-size: 13px; }
+    kbd { font: inherit; font-size: 12px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; background: var(--bg); }
+
+    h2 { font-size: 22px; letter-spacing: -0.02em; margin: 48px 0 16px; }
+
+    .phone { margin-top: 12px; }
+    .phone h3 { font-size: 15px; margin-bottom: 10px; }
+    .phone ol { padding-left: 20px; color: var(--soft); font-size: 15px; }
+    .phone li + li { margin-top: 8px; }
+
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; padding: 14px 0; font-weight: 500; }
+    .faq p { padding-bottom: 14px; color: var(--soft); font-size: 15px; }
+
+    footer { padding: 48px 0 32px; font-size: 13px; color: var(--soft); }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l6-6"/></svg>
+      </span>
+      Loot Radar
+    </header>
+
+    <section class="hero">
+      <h1>Find the best Instamart deals near you.</h1>
+      <p>Pick a few aisles and get a list of the biggest discounts in your local store.</p>
+    </section>
+
+    <div class="card install">
+      <a class="bm-btn" id="bm-link" href="#" title="Drag me to your bookmarks bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l6-6"/></svg>
+        Loot Radar
+      </a>
+      <p class="hint">Drag the button to your bookmarks bar. Then open Instamart and click it.</p>
+      <p class="hint small">Don't see the bar? Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>.</p>
+    </div>
+
+    <div class="card phone">
+      <h3>On your phone</h3>
+      <ol>
+        <li><button type="button" class="btn" id="copy-btn">Copy code</button></li>
+        <li>Bookmark this page, then edit it. Paste the code in place of the link.</li>
+        <li>On Instamart, type the bookmark's name in the address bar and tap it.</li>
+      </ol>
+    </div>
+
+    <h2>Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Is it safe?</summary>
+        <p>Yes. It runs in your own browser tab. No login, no account, nothing sent anywhere else.</p>
+      </details>
+      <details>
+        <summary>How does it know my store?</summary>
+        <p>It picks up your store from the Instamart page you have open. Make sure your delivery address is set first.</p>
+      </details>
+      <details>
+        <summary>Why is it slow sometimes?</summary>
+        <p>Each aisle takes a second or two. Pick fewer aisles for quicker results.</p>
+      </details>
+    </div>
+
+    <footer>Made with ❤️ by Satyam Raj · Not affiliated with Swiggy.</footer>
+  </div>
+
+  <script>
+    var SCRIPT_URL = 'https://stymrj.github.io/swiggy-instamart-deals-tracker/loot-radar.min.js';
+    var LOADER = "javascript:(function(){var s=document.createElement('script');s.src='" + SCRIPT_URL + "?t='+Date.now();document.body.appendChild(s);})();";
+
+    document.getElementById('bm-link').href = LOADER;
+
+    document.getElementById('copy-btn').addEventListener('click', function () {
+      var btn = this;
+      navigator.clipboard.writeText(LOADER).then(function () {
+        btn.textContent = 'Copied!';
+        btn.classList.add('done');
+        setTimeout(function () { btn.textContent = 'Copy code'; btn.classList.remove('done'); }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
